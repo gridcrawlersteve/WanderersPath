@@ -40,3 +40,12 @@ function move(direction) {
     }
   }
 }
+
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1; // normal speed
+    utterance.pitch = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+}
