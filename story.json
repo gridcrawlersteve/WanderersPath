@@ -2,19 +2,59 @@
   "intro": "You awaken at the edge of an untamed land. Beyond lies a world of winding forests, hidden ruins, and darkened caves. You are the wanderer. Your choices carve the path.",
   "map": [
     [
-      { "id": "0-0", "desc": "A shadowy grove with whispering leaves.", "north": null, "east": "0-1", "south": "1-0", "west": null },
-      { "id": "0-1", "desc": "A moss-covered ruin, half-buried in earth.", "north": null, "east": "0-2", "south": "1-1", "west": "0-0" },
-      { "id": "0-2", "desc": "A cliff overlooking a misty valley.", "north": null, "east": null, "south": "1-2", "west": "0-1" }
+      { "id": "0-0", "desc": { "default": "A shadowy grove with whispering leaves." }, "north": null, "east": "0-1", "south": "1-0", "west": null },
+      { "id": "0-1", "desc": { "default": "A moss-covered ruin, half-buried in earth." }, "north": null, "east": "0-2", "south": "1-1", "west": "0-0" },
+      { "id": "0-2", "desc": { "default": "A cliff overlooking a misty valley." }, "north": null, "east": "0-3", "south": "1-2", "west": "0-1" },
+      { "id": "0-3", "desc": { "default": "A quiet meadow with wildflowers." }, "north": null, "east": "0-4", "south": "1-3", "west": "0-2" },
+      { "id": "0-4", "desc": { "default": "The edge of a dark forest looms ahead." }, "north": null, "east": null, "south": "1-4", "west": "0-3" }
     ],
     [
-      { "id": "1-0", "desc": "A bubbling brook crossing your path.", "north": "0-0", "east": "1-1", "south": "2-0", "west": null },
-      { "id": "1-1", "desc": "An abandoned campsite with a smoldering fire pit.", "north": "0-1", "east": "1-2", "south": "2-1", "west": "1-0" },
-      { "id": "1-2", "desc": "A dark cave mouth yawns before you.", "north": "0-2", "east": null, "south": "2-2", "west": "1-1" }
+      { "id": "1-0", "desc": { "default": "A bubbling brook crossing your path." }, "north": "0-0", "east": "1-1", "south": "2-0", "west": null },
+      { "id": "1-1", "desc": { "default": "An abandoned campsite with a smoldering fire pit.", "night": "The fire pit glows faintly in the darkness; shadows twist strangely." }, "north": "0-1", "east": "1-2", "south": "2-1", "west": "1-0",
+        "event": {
+          "type": "treasure",
+          "name": "Rusty Sword",
+          "description": "A half-buried sword, dull but serviceable.",
+          "choices": [
+            { "text": "Take sword", "result": "You now have a Rusty Sword." },
+            { "text": "Leave it", "result": "You leave the sword where it lies." }
+          ]
+        }
+      },
+      { "id": "1-2", "desc": { "default": "A dark cave mouth yawns before you." }, "north": "0-2", "east": "1-3", "south": "2-2", "west": "1-1",
+        "event": {
+          "type": "encounter",
+          "name": "Wild Wolf",
+          "description": "A wolf emerges from the underbrush, eyes glinting.",
+          "choices": [
+            { "text": "Fight", "result": "You defeat the wolf but sustain a minor injury." },
+            { "text": "Flee", "result": "You escape safely but lose your way." }
+          ]
+        }
+      },
+      { "id": "1-3", "desc": { "default": "A narrow footbridge over a rushing stream." }, "north": "0-3", "east": "1-4", "south": "2-3", "west": "1-2" },
+      { "id": "1-4", "desc": { "default": "Thick brambles block your path." }, "north": "0-4", "east": null, "south": "2-4", "west": "1-3" }
     ],
     [
-      { "id": "2-0", "desc": "Thick underbrush makes progress slow.", "north": "1-0", "east": "2-1", "south": null, "west": null },
-      { "id": "2-1", "desc": "A serene pond reflects the sky above.", "north": "1-1", "east": "2-2", "south": null, "west": "2-0" },
-      { "id": "2-2", "desc": "A narrow path leads into an ancient forest.", "north": "1-2", "east": null, "south": null, "west": "2-1" }
+      { "id": "2-0", "desc": { "default": "Thick underbrush makes progress slow." }, "north": "1-0", "east": "2-1", "south": "3-0", "west": null },
+      { "id": "2-1", "desc": { "default": "A serene pond reflects the sky above." }, "north": "1-1", "east": "2-2", "south": "3-1", "west": "2-0" },
+      { "id": "2-2", "desc": { "default": "A mossy cave entrance leads underground." }, "north": "1-2", "east": "2-3", "south": "3-2", "west": "2-1" },
+      { "id": "2-3", "desc": { "default": "A clearing with scattered animal bones." }, "north": "1-3", "east": "2-4", "south": "3-3", "west": "2-2" },
+      { "id": "2-4", "desc": { "default": "A rocky hill overlooks the distant valley." }, "north": "1-4", "east": null, "south": "3-4", "west": "2-3" }
+    ],
+    [
+      { "id": "3-0", "desc": { "default": "A muddy trail winds between towering oaks." }, "north": "2-0", "east": "3-1", "south": "4-0", "west": null },
+      { "id": "3-1", "desc": { "default": "A hidden alcove with strange carvings." }, "north": "2-1", "east": "3-2", "south": "4-1", "west": "3-0" },
+      { "id": "3-2", "desc": { "default": "A foggy glade with eerie silence." }, "north": "2-2", "east": "3-3", "south": "4-2", "west": "3-1" },
+      { "id": "3-3", "desc": { "default": "A small waterfall cascades into a crystal pool." }, "north": "2-3", "east": "3-4", "south": "4-3", "west": "3-2" },
+      { "id": "3-4", "desc": { "default": "A narrow canyon opens ahead." }, "north": "2-4", "east": null, "south": "4-4", "west": "3-3" }
+    ],
+    [
+      { "id": "4-0", "desc": { "default": "A dense thicket blocks your progress." }, "north": "3-0", "east": "4-1", "south": null, "west": null },
+      { "id": "4-1", "desc": { "default": "A quiet glade with soft moss underfoot." }, "north": "3-1", "east": "4-2", "south": null, "west": "4-0" },
+      { "id": "4-2", "desc": { "default": "A crumbling stone tower looms ahead." }, "north": "3-2", "east": "4-3", "south": null, "west": "4-1" },
+      { "id": "4-3", "desc": { "default": "A shallow stream winds through rocks." }, "north": "3-3", "east": "4-4", "south": null, "west": "4-2" },
+      { "id": "4-4", "desc": { "default": "The forest thickens, shadows deep and dark." }, "north": "3-4", "east": null, "south": null, "west": "4-3" }
     ]
   ]
 }
